@@ -10,6 +10,9 @@ source ./lib.sh
 STOW=(
     ssh
     bash
+    vim
+    kagi
+    vagrant
 )
 
 print_header "DOTFILE STOWER"
