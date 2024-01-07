@@ -37,4 +37,11 @@ __venv_info()
 # disable the default virtualenv prompt change
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-export PS1="┌ \$([ \$? -eq 0 ] && echo ✓ || echo ⨯) \u@\h ⎈ \$(__kube_ps1) \n└ \$(__venv_info)\W\$(__git_branch) $ "
+# https://unix.stackexchange.com/questions/656045/how-to-modify-the-anaconda-environment-prompt-in-zsh
+# needs changeps1: False in .condarc
+__conda_info()
+{
+  [[ -n "$CONDA_DEFAULT_ENV" ]] && echo "(conda:$CONDA_DEFAULT_ENV) "
+}
+
+export PS1="┌ \$([ \$? -eq 0 ] && echo ✓ || echo ⨯) \u@\h ⎈ \$(__kube_ps1) \n└ \$(__venv_info)\$(__conda_info)\W\$(__git_branch) $ "

@@ -8,11 +8,13 @@ source ./lib.sh
 
 # Stow
 STOW=(
+    aliases
     ssh
     bash
     vim
     kagi
     vagrant
+    conda
 )
 
 print_header "DOTFILE STOWER"
